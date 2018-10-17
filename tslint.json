@@ -1,0 +1,17 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-airbnb"
+  ],
+  "rules": {
+    "object-literal-sort-keys": false,
+    "no-console": false,
+    "no-shadowed-variable": false,
+    "member-ordering": false,
+    "ordered-imports": true,
+    "prefer-for-of": false,
+    "variable-name": [true, "allow-leading-underscore", "allow-pascal-case"]
+  },
+  "jsRules": {}
+}
