@@ -7,6 +7,40 @@ export class BinaryHeap {
 
     private readonly _array: HeapElement[];
 
+    public changePriority(index: number, newPriority: number) {
+        const element = this.element(index);
+        const oldPriority = element.priority;
+        element.priority = newPriority;
+
+        // If priority is smaller - we just heapify. If it's lower - we remove it properly
+        if (newPriority <= oldPriority) {
+            this.heapify(index);
+        } else {
+            let currentIndex = index;
+            let parent = this.parent(index);
+
+            while (parent !== null && element.priority > this._array[parent].priority) {
+                console.log('Swapping');
+
+                this.swap(currentIndex, parent);
+
+                currentIndex = parent;
+                parent = this.parent(parent);
+            }
+        }
+    }
+
+    public deleteElement(index: number) {
+        const originalElement = this._array[index];
+
+        // We want to keep original element priority
+        this._array[index] = Object.assign({}, originalElement);
+        this.changePriority(index, Infinity);
+        this.extractMax();
+
+        return originalElement;
+    }
+
     public element(index: number) {
         return this._array[index] || null;
     }
@@ -44,7 +78,7 @@ export class BinaryHeap {
         });
     }
 
-    public getParentIndex(index: number) {
+    public parent(index: number) {
         const parentIndex = Math.floor((index - 1) / 2);
 
         return parentIndex >= 0 ? parentIndex : null;
@@ -72,11 +106,11 @@ export class BinaryHeap {
 
         // Get the smallest element
         let biggestIndex: number = index;
-        if (leftIndex && this._array[leftIndex].priority > this._array[biggestIndex].priority) {
+        if (leftIndex !== null && this._array[leftIndex].priority > this._array[biggestIndex].priority) {
             biggestIndex = leftIndex;
         }
 
-        if (rightIndex && this._array[rightIndex].priority > this._array[rightIndex].priority) {
+        if (rightIndex !== null && this._array[rightIndex].priority > this._array[biggestIndex].priority) {
             biggestIndex = rightIndex;
         }
 
@@ -87,7 +121,7 @@ export class BinaryHeap {
     }
 
     private maintainHeap(index: number) {
-        const parentIndex = this.getParentIndex(index);
+        const parentIndex = this.parent(index);
 
         if (parentIndex !== null) {
             const parent = this._array[parentIndex];

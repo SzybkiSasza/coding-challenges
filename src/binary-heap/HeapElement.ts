@@ -4,8 +4,12 @@ export class HeapElement {
         this._data = data;
     }
 
-    private readonly _priority: number;
+    private _priority: number;
     private _data: any;
+
+    set priority(newPriority: number) {
+        this._priority = newPriority;
+    }
 
     get priority(): number {
         return this._priority;
