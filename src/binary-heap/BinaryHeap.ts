@@ -5,7 +5,7 @@ export class BinaryHeap {
         this._array = array;
     }
 
-    private _array: HeapElement[];
+    private readonly _array: HeapElement[];
 
     public element(index: number) {
         return this._array[index] || null;
@@ -54,20 +54,36 @@ export class BinaryHeap {
         return this._array.length;
     }
 
-    private getLeft(index: number) {
-        const leftIndex = index * 2 - 1;
+    private left(index: number) {
+        const leftIndex = index * 2 + 1;
 
         return leftIndex < this.size() ? leftIndex : null;
     }
 
-    private getRightIndex(index: number) {
-        const rightIndex = index * 2;
+    private right(index: number) {
+        const rightIndex = index * 2 + 2;
 
         return rightIndex < this.size() ? rightIndex : null;
     }
 
     private heapify(index = 0) {
-        console.log('Will heapify here...');
+        const leftIndex = this.left(index);
+        const rightIndex = this.right(index);
+
+        // Get the smallest element
+        let biggestIndex: number = index;
+        if (leftIndex && this._array[leftIndex].priority > this._array[biggestIndex].priority) {
+            biggestIndex = leftIndex;
+        }
+
+        if (rightIndex && this._array[rightIndex].priority > this._array[rightIndex].priority) {
+            biggestIndex = rightIndex;
+        }
+
+        if (biggestIndex !== index) {
+            this.swap(biggestIndex, index);
+            this.heapify(biggestIndex);
+        }
     }
 
     private maintainHeap(index: number) {
@@ -78,11 +94,17 @@ export class BinaryHeap {
             const element = this._array[index];
 
             if (parent && element && parent.priority < element.priority) {
-                this._array[parentIndex] = element;
-                this._array[index] = parent;
+                this.swap(parentIndex, index);
 
                 this.maintainHeap(parentIndex);
             }
         }
+    }
+
+    private swap(indexA: number, indexB: number) {
+        const eltA = this._array[indexA];
+
+        this._array[indexA] = this._array[indexB];
+        this._array[indexB] = eltA;
     }
 }

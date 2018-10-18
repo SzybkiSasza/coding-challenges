@@ -4,6 +4,7 @@ import { HeapPrinter } from './HeapPrinter';
 
 const heap = new BinaryHeap([]);
 
+console.log('Inserting many elements...');
 heap.insertMany([
     new HeapElement(1, {}),
     new HeapElement(30, {}),
@@ -30,17 +31,14 @@ heap.insertMany([
     new HeapElement(33, {}),
 ]);
 
-// priority.insert(new HeapElement(1, {}));
-// priority.displayTree();
-
-// priority.insert(new HeapElement(30, {}));
-// priority.displayTree();
-
-// priority.insert(new HeapElement(12, {}), );
-// priority.displayTree();
-
-// priority.insert(new HeapElement(120, {}));
-
+console.log('Initial tree: ');
 HeapPrinter.displayTree(heap);
-// console.log(priority.extractMax());
-// console.log(priority._array);
+
+console.log('Max element...');
+console.log(heap.getMax());
+
+console.log('Removing max...');
+console.log(heap.extractMax());
+
+console.log('Heap after extracting: ');
+HeapPrinter.displayTree(heap);
