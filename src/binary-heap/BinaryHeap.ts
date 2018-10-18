@@ -1,11 +1,11 @@
 import { HeapElement } from './HeapElement';
 
 export class BinaryHeap {
-    constructor(array: HeapElement[]) {
+    constructor(array: HeapElement[] = []) {
         this._array = array;
     }
 
-    private readonly _array: HeapElement[];
+    private _array: HeapElement[];
 
     public changePriority(index: number, newPriority: number) {
         const element = this.element(index);
@@ -73,9 +73,11 @@ export class BinaryHeap {
     }
 
     public insertMany(elements: HeapElement[]) {
-        elements.forEach(element => {
-            this.insert(element);
-        });
+        this._array = [...this._array, ...elements];
+
+        for (let index = this.size(); index >= 0  ; index--) {
+            this.heapify(index);
+        }
     }
 
     public parent(index: number) {
@@ -86,6 +88,23 @@ export class BinaryHeap {
 
     public size() {
         return this._array.length;
+    }
+
+    public sort(): HeapElement[] {
+        // We don't want to destroy existing tree - we clone it beforehand
+        const arrayClone = this._array.slice();
+
+        let extractedElement = this.extractMax();
+        const sortedArray: HeapElement[] = [];
+        while (extractedElement) {
+            sortedArray.unshift(extractedElement);
+            extractedElement = this.extractMax();
+        }
+
+        // Restore original array
+        this._array = arrayClone;
+
+        return sortedArray;
     }
 
     private left(index: number) {

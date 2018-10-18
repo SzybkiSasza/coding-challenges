@@ -59,13 +59,20 @@ console.log('Decreasing priority from 75 to 20...');
 heap.changePriority(1, 20);
 console.log('After priority change: ');
 HeapPrinter.displayTree(heap);
+console.log('\n');
 
 console.log('Increasing priority...');
 heap.changePriority(15, 76);
 console.log('After priority change: ');
 HeapPrinter.displayTree(heap);
+console.log('\n');
 
 console.log('Deleting the element...');
 heap.deleteElement(4);
 console.log('After deleting:');
 HeapPrinter.displayTree(heap);
+console.log('\n');
+
+console.log('Getting sorted array: ');
+console.log(heap.sort());
+console.log('\n');
