@@ -72,6 +72,7 @@ export class BinaryHeap {
 
     private maintainHeap(index: number) {
         const parentIndex = this.getParentIndex(index);
+
         if (parentIndex !== null) {
             const parent = this._array[parentIndex];
             const element = this._array[index];
@@ -80,7 +81,7 @@ export class BinaryHeap {
                 this._array[parentIndex] = element;
                 this._array[index] = parent;
 
-                this.heapify(parentIndex);
+                this.maintainHeap(parentIndex);
             }
         }
     }

@@ -93,8 +93,6 @@ export class HeapPrinter {
             buffer.push(dataLine);
         }
 
-        console.log(buffer);
-
         this.printTree(buffer);
     }
 
