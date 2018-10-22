@@ -6,10 +6,11 @@
   ],
   "rules": {
     "max-line-length": [true, 160],
-    "object-literal-sort-keys": false,
-    "no-console": false,
-    "no-shadowed-variable": false,
     "member-ordering": false,
+    "no-console": false,
+    "no-increment-decrement": false,
+    "no-shadowed-variable": false,
+    "object-literal-sort-keys": false,
     "ordered-imports": true,
     "prefer-for-of": false,
     "variable-name": [true, "allow-leading-underscore", "allow-pascal-case"]
