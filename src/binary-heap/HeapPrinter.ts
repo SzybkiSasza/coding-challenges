@@ -34,7 +34,7 @@ export class HeapPrinter {
                 ];
             } else {
                 const areChildrenOfTheSameParent =
-                    heap.getParentIndex(i) === heap.getParentIndex(i + 1);
+                    heap.parent(i) === heap.parent(i + 1);
 
                 dataLine = areChildrenOfTheSameParent ? [
                     ...dataLine,
@@ -92,8 +92,6 @@ export class HeapPrinter {
             dataLine.shift();
             buffer.push(dataLine);
         }
-
-        console.log(buffer);
 
         this.printTree(buffer);
     }
