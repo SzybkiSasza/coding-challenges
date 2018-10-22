@@ -14,7 +14,7 @@
   "author": "Bartosz \"StingRay\" Polanczyk",
   "scripts": {
     "build": "tsc -p ./",
-    "lint": "tslint --config tslint.json ./src/*/**.ts",
+    "lint": "tslint --project tsconfig.json",
     "watch": "yarn build --watch"
   },
   "devDependencies": {
