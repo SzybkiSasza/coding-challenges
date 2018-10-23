@@ -2,9 +2,11 @@ import { BinaryHeap } from './BinaryHeap';
 import { HeapElement } from './HeapElement';
 import { HeapPrinter } from './HeapPrinter';
 
+console.log('=== BINARY HEAP ===');
+
 const heap = new BinaryHeap([]);
 
-console.log('Inserting many elements...');
+console.log('Inserting many elements...\n');
 heap.insertMany([
   new HeapElement(1, {}),
   new HeapElement(30, {}),
@@ -35,7 +37,7 @@ console.log('Initial tree: ');
 HeapPrinter.displayTree(heap);
 console.log('\n');
 
-console.log('Max element...');
+console.log('Max element:');
 console.log(heap.getMax());
 console.log('\n');
 
@@ -69,7 +71,7 @@ console.log('\n');
 
 console.log('Deleting the element...');
 heap.deleteElement(4);
-console.log('After deleting:');
+console.log('After deleting: ');
 HeapPrinter.displayTree(heap);
 console.log('\n');
 

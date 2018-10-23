@@ -9,6 +9,7 @@
     "member-ordering": false,
     "no-console": false,
     "no-increment-decrement": false,
+    "no-parameter-reassignment": false,
     "no-shadowed-variable": false,
     "object-literal-sort-keys": false,
     "ordered-imports": true,
