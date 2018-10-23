@@ -14,6 +14,8 @@
   "author": "Bartosz \"StingRay\" Polanczyk",
   "scripts": {
     "build": "tsc -p ./",
+    "codacy": "cat ./coverage/lcov.info | codacy-coverage",
+    "coverage": "yarn test --coverage --no-cache",
     "lint": "tslint --project tsconfig.json",
     "test": "jest -c=jest.config.json",
     "test:watch": "yarn test --watch",
@@ -21,6 +23,7 @@
   },
   "devDependencies": {
     "@types/jest": "^23.3.7",
+    "codacy-coverage": "^3.2.0",
     "jest": "^23.6.0",
     "ts-jest": "^23.10.4",
     "tslint": "^5.11.0",
