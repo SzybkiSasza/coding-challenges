@@ -8,4 +8,4 @@ install:
 script:
 - yarn lint
 - yarn coverage
-- yarn codacy
+# - yarn codacy Commented out for now. Will enable again after Codacy processes the repo.
