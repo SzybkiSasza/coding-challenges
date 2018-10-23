@@ -5,11 +5,11 @@ console.log('=== BINARY SEARCH ===');
 
 console.log('Generating input data...\n');
 const array: IArrayElement[] = [];
-for (let i = 0; i < 10000000; i++) {
-  array.push({
+for (let i = 0; i < Math.pow(10, 7); i++) {
+  array[i] = {
     priority: i,
     data: {},
-  });
+  };
 }
 
 const binarySearch = new BinarySearch(array);

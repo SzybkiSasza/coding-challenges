@@ -8,4 +8,7 @@ install:
 script:
 - yarn lint
 - yarn coverage
-# - yarn codacy Commented out for now. Will enable again after Codacy processes the repo.
+- yarn codacy
+env:
+  global:
+    secure: izO0rzDo8vLq9KrtnF6Ksq37Hf3sAL7QYwcBAt99K5hCw6dS5unk0XJyBeX38Vj4xQ58QWabDW+ElMM7JX7WuGnrmpYwoAsCMmph5jB+lMHu9sc4PewFKd36YK7o0J5KOHINfolhg7+6J57BgfUR3YhZzPUG9fG9/XJ4H5EOfx15VvFmM/GuCTW+rZrBCciESFi2ApHvWWMhXGViWNYZQ41YSVr+Z34fTNCanTAWxO6YpSsb7IFQfx7372eVLaYBfXjgYFxnMuGDd+tr9PGtdC4sJqC5Q8mv27PD8WeZrNvg73HeyWAv7zTImMOaKisCwoECW+Ezip11gr4Wpn17xrYHvCu/8HXD1eLVEjBwfmJCDXYmbVKDlsCa8tK1BdVEO/hFFDZLPHm0gIFjjPRlNJ2oAXfASkGZmRHsVnIrrbbcu+HHTQLTAbqFoiVY1QXEjmwuoDlKLln8YsDTsuup5lqJW4ngCRDSGDU2G/170CpMzYyNo5zEt4d7oCAAB0YjjShL3wDhVO46oaDXn/juyIpFFQ71FXGdeANK+oXwPQvEVExY+TRbw9HZo7XVYO05Q5XURLExJLN0w69dqRQTUoF4pFmKR2VOnXnRQI9D+G01Rmrx+HEbjBEBSV1qBxpuYinPUU2N33sYYYjA+NZMksCJiob6XHTBeG+OLZrVja4=
